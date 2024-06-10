@@ -8,6 +8,10 @@ This package is an alternative to IndexedStack, that supports lazy loading with 
 
 ## Usage
 
+```
+deferred_indexed_stack: ^0.0.1
+```
+
 ```dart
 final _controller = DeferredIndexedStackController();
 
