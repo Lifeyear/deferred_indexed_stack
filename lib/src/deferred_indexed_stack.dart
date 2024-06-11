@@ -124,7 +124,7 @@ class DeferredIndexedStackController extends ChangeNotifier {
       (i) => i == index,
     );
     for (int i = 0; i < children.length; i++) {
-      if (children[i] case DeferredTab child) {
+      if (children[i] case DeferredWidget child) {
         if (child.deferredFor != null) {
           Future.delayed(child.deferredFor!, () {
             initChildAt(i);
@@ -146,10 +146,16 @@ class DeferredTab extends StatelessWidget implements DeferredWidget {
     this.deferredFor,
   });
 
+  /// Id, which could be used instead of index to initialize the deferred
+  /// tabs using controller
   @override
   final String? id;
+
+  /// The amount of time when the tab would be automatically initialized
   @override
   final Duration? deferredFor;
+
+  /// The content of tab
   final Widget child;
 
   @override
@@ -159,7 +165,11 @@ class DeferredTab extends StatelessWidget implements DeferredWidget {
 }
 
 abstract class DeferredWidget {
+  /// Id, which could be used instead of index to initialize the deferred
+  /// tabs using controller
   final String? id;
+  
+  /// The amount of time when the tab would be automatically initialized
   final Duration? deferredFor;
 
   DeferredWidget({required this.id, required this.deferredFor});
