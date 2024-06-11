@@ -138,7 +138,7 @@ class DeferredIndexedStackController extends ChangeNotifier {
   }
 }
 
-class DeferredTab extends StatelessWidget {
+class DeferredTab extends StatelessWidget implements DeferredWidget {
   const DeferredTab({
     super.key,
     required this.child,
@@ -146,7 +146,9 @@ class DeferredTab extends StatelessWidget {
     this.deferredFor,
   });
 
+  @override
   final String? id;
+  @override
   final Duration? deferredFor;
   final Widget child;
 
@@ -154,4 +156,11 @@ class DeferredTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return child;
   }
+}
+
+abstract class DeferredWidget {
+  final String? id;
+  final Duration? deferredFor;
+
+  DeferredWidget({required this.id, required this.deferredFor});
 }
