@@ -77,9 +77,9 @@ class _DeferredIndexedStackState extends State<DeferredIndexedStack> {
   }
 
   List<Widget> get children {
-    return _controller._initializedIndicies.indexed
+    return _controller._initializedIndicies?.indexed
         .map((it) => it.$2 ? widget.children[it.$1] : const SizedBox())
-        .toList();
+        .toList() ?? [];
   }
 
   @override
@@ -101,7 +101,7 @@ class _DeferredIndexedStackState extends State<DeferredIndexedStack> {
 }
 
 class DeferredIndexedStackController extends ChangeNotifier {
-  late final List<bool> _initializedIndicies;
+  List<bool>? _initializedIndicies;
   final Map<String, int> _idToIndex = {};
 
   void initChildById(String id) {
@@ -111,9 +111,12 @@ class DeferredIndexedStackController extends ChangeNotifier {
   }
 
   void initChildAt(int index) {
-    final oldValue = _initializedIndicies[index];
-    _initializedIndicies[index] = true;
-    if (oldValue != _initializedIndicies[index]) {
+    if (_initializedIndicies == null) {
+      return;
+    }
+    final oldValue = _initializedIndicies![index];
+    _initializedIndicies![index] = true;
+    if (oldValue != _initializedIndicies![index]) {
       notifyListeners();
     }
   }
@@ -168,7 +171,7 @@ abstract class DeferredWidget {
   /// Id, which could be used instead of index to initialize the deferred
   /// tabs using controller
   final String? id;
-  
+
   /// The amount of time when the tab would be automatically initialized
   final Duration? deferredFor;
 
