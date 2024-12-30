@@ -57,4 +57,6 @@ DeferredIndexedStack(
     ),
   ],
 )
+```
 
+You can read more in [this Medium article](https://medium.com/@pomis172/improving-the-performance-of-flutter-apps-by-deferring-navigation-tabs-b0eb749d8f96).
