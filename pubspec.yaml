@@ -1,6 +1,6 @@
 name: deferred_indexed_stack
 description: "IndexedStack with possibility to defer initialization of content"
-version: 0.0.4
+version: 0.0.4+hotfix.1
 repository: https://github.com/Lifeyear/deferred_indexed_stack
 
 topics: 
