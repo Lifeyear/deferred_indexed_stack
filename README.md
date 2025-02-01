@@ -1,4 +1,6 @@
-This package is an alternative to IndexedStack, that supports lazy loading with some additional customization.
+[![Pub](https://img.shields.io/pub/v/deferred_indexed_stack.svg)](https://pub.dev/packages/deferred_indexed_stack)
+
+This package is an alternative to `IndexedStack`, that supports lazy loading with some additional customization.
 
 ## Features
 
@@ -60,3 +62,7 @@ DeferredIndexedStack(
 ```
 
 You can read more in [this Medium article](https://medium.com/@pomis172/improving-the-performance-of-flutter-apps-by-deferring-navigation-tabs-b0eb749d8f96).
+
+## Maintainer
+
+Developed as an open source contribution of [Lifeyear](https://lifeyear.com)
